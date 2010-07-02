@@ -5,14 +5,14 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "vidibus-uuid"
-    gem.summary = %Q{TODO: one-line summary of your gem}
-    gem.description = %Q{TODO: longer description of your gem}
-    gem.email = "andre@webwarelab.com"
-    gem.homepage = "http://github.com/webwarelab/vidibus-uuid"
+    gem.summary = %Q{Provides UUID generation through UUID gem.}
+    gem.description = %Q{Provides UUID generation. Basically, it is an abstraction layer for UUID gem.}
+    gem.email = "andre@vidibus.com"
+    gem.homepage = "http://github.com/vidibus/vidibus-uuid"
     gem.authors = ["Andre Pankratz"]
-    gem.add_development_dependency "rspec", ">= 1.2.9"
-    gem.add_development_dependency "cucumber", ">= 0"
-    # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
+    gem.add_development_dependency "rspec"
+    gem.add_development_dependency "mongoid", ">= 2.0.0.beta6"
+    gem.add_dependency "uuid"
   end
   Jeweler::GemcutterTasks.new
 rescue LoadError
@@ -33,17 +33,17 @@ end
 
 task :spec => :check_dependencies
 
-begin
-  require 'cucumber/rake/task'
-  Cucumber::Rake::Task.new(:features)
-
-  task :features => :check_dependencies
-rescue LoadError
-  task :features do
-    abort "Cucumber is not available. In order to run features, you must: sudo gem install cucumber"
-  end
-end
-
+# begin
+#   require 'cucumber/rake/task'
+#   Cucumber::Rake::Task.new(:features)
+# 
+#   task :features => :check_dependencies
+# rescue LoadError
+#   task :features do
+#     abort "Cucumber is not available. In order to run features, you must: sudo gem install cucumber"
+#   end
+# end
+# 
 task :default => :spec
 
 require 'rake/rdoctask'

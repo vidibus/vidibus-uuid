@@ -1,16 +1,32 @@
 = vidibus-uuid
 
-Description goes here.
+Generates compact UUIDs. Basically this is an abstraction of http://github.com/assaf/uuid
 
-== Note on Patches/Pull Requests
- 
-* Fork the project.
-* Make your feature addition or bug fix.
-* Add tests for it. This is important so I don't break it in a
-  future version unintentionally.
-* Commit, do not mess with rakefile, version, or history.
-  (if you want to have your own version, that is fine but bump version in a commit by itself I can ignore when I pull)
-* Send me a pull request. Bonus points for topic branches.
+== Installation
+
+Add the dependency to the Gemfile of your application:
+gem "vidibus-uuid"
+
+Then call bundle install on your console.
+
+
+== Basic Usage
+
+require "rubygems"
+require "uuid"
+
+uuid = Vidibus::Uuid.generate
+
+
+== Usage in Mongoid model
+
+class MyModel
+  include Mongoid::Document
+  include Vidibus::Uuid::Mongoid
+end
+
+This will add a field uuid to the model an generate an UUID when creating the model.
+
 
 == Copyright
 
