@@ -4,13 +4,15 @@ module Vidibus
       extend ActiveSupport::Concern
       included do
         field :uuid
-        before_create :generate_uuid
+        before_validation :generate_uuid
+        validates :uuid, :uniqueness => true, :uuid => true
       end
       
       private
       
       def generate_uuid
-        self.uuid = Vidibus::Uuid.generate
+        return unless new_record?
+        self.uuid ||= Vidibus::Uuid.generate
       end
     end
   end

@@ -1,11 +1,15 @@
 $LOAD_PATH.unshift(File.dirname(__FILE__))
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), "..", "lib"))
-require "vidibus-uuid"
+
+require "rubygems"
+require "active_support/core_ext"
 require "spec"
 require "mongoid"
+require "uuid"
+require "vidibus-uuid"
 
 Mongoid.configure do |config|
-  name = "vidibus_uuid_test"
+  name = "vidibus-uuid_test"
   host = "localhost"
   config.master = Mongo::Connection.new.db(name)
 end

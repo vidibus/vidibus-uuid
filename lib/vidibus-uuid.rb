@@ -1,8 +1,6 @@
-require "rubygems"
-require "uuid"
-require "active_support/core_ext"
-
-#$:.unshift(File.join(File.dirname(__FILE__), "..", "lib", "vidibus"))
-
 require "vidibus/uuid"
+require "vidibus/validate_uuid"
 require "vidibus/uuid/mongoid"
+
+# Add UUID validator
+ActiveModel::Validations.send(:include, Vidibus::ValidateUuid)

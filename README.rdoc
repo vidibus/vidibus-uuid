@@ -15,7 +15,8 @@ Then call bundle install on your console.
 require "rubygems"
 require "uuid"
 
-uuid = Vidibus::Uuid.generate
+> Vidibus::Uuid.generate
+ => "b063263064e0012d47b658b035f038ab"
 
 
 == Usage in Mongoid model
@@ -28,6 +29,23 @@ end
 This will add a field uuid to the model an generate an UUID when creating the model.
 
 
+== Validation of custom attributes
+
+To verfify that custom attributes are formatted as UUID, add the uuid validator to your model:
+
+class MyModel
+  include Mongoid::Document
+  
+  product_uuid
+  validates :product_uuid, :uuid => { :allow_blank => true }
+end
+
+
 == Copyright
 
 Copyright (c) 2010 Andre Pankratz. See LICENSE for details.
+
+
+== Thank you!
+
+The development of this Gem was sponsored by Käuferportal: http://www.kaeuferportal.de
