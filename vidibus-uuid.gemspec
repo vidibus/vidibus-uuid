@@ -5,12 +5,12 @@
 
 Gem::Specification.new do |s|
   s.name = %q{vidibus-uuid}
-  s.version = "0.3.4"
+  s.version = "0.3.5"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Andre Pankratz"]
   s.date = %q{2010-08-09}
-  s.description = %q{Provides UUID generation. Basically, it is an abstraction layer for UUID gem.}
+  s.description = %q{Provides UUID generation for Mongoid models. It includes a validator for UUIDs.}
   s.email = %q{andre@vidibus.com}
   s.extra_rdoc_files = [
     "LICENSE",
@@ -23,6 +23,7 @@ Gem::Specification.new do |s|
      "README.rdoc",
      "Rakefile",
      "VERSION",
+     "config/locale/en.yml",
      "lib/vidibus-uuid.rb",
      "lib/vidibus/uuid.rb",
      "lib/vidibus/uuid/mongoid.rb",
