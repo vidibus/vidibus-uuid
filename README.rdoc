@@ -5,7 +5,7 @@ This gem is part of the open source SOA framework Vidibus: http://www.vidibus.or
 It generates compact UUIDs. Basically, this is an abstraction of http://github.com/assaf/uuid
 
 
-=== Installation
+== Installation
 
 Add the dependency to the Gemfile of your application:
 
