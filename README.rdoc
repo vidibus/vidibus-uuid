@@ -5,21 +5,24 @@ This gem is part of the open source SOA framework Vidibus: http://www.vidibus.or
 It generates compact UUIDs. Basically, this is an abstraction of http://github.com/assaf/uuid
 
 
-== Installation
+=== Installation
 
 Add the dependency to the Gemfile of your application:
-gem "vidibus-uuid"
+
+  gem "vidibus-uuid"
 
 Then call bundle install on your console.
 
 
-== Basic Usage
+== Usage
 
   Vidibus::Uuid.generate
   # => "b063263064e0012d47b658b035f038ab"
 
 
-== Usage in Mongoid model
+=== Usage in Mongoid model
+
+Include the Vidibus::Uuid::Mongoid module in your Mongoid model:
 
   class MyModel
     include Mongoid::Document
@@ -46,7 +49,7 @@ This will extend your model as follows:
   end
 
 
-== Validation of custom attributes
+=== Validation of custom attributes
 
 To verfify that custom attributes are formatted as UUID, add the uuid validator to your model:
 
