@@ -20,3 +20,5 @@ Spec::Runner.configure do |config|
     Mongoid.master.collections.select { |c| c.name != 'system.indexes' }.each(&:drop)  
   end
 end
+
+I18n.load_path += Dir[File.join('config', 'locale', '**', '*.{rb,yml}')]

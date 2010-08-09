@@ -1,6 +1,9 @@
 = vidibus-uuid
 
-Generates compact UUIDs. Basically this is an abstraction of http://github.com/assaf/uuid
+This gem is part of the open source SOA framework Vidibus: http://www.vidibus.org
+
+It generates compact UUIDs. Basically, this is an abstraction of http://github.com/assaf/uuid
+
 
 == Installation
 
@@ -12,33 +15,46 @@ Then call bundle install on your console.
 
 == Basic Usage
 
-require "rubygems"
-require "uuid"
-
-> Vidibus::Uuid.generate
- => "b063263064e0012d47b658b035f038ab"
+  Vidibus::Uuid.generate
+  # => "b063263064e0012d47b658b035f038ab"
 
 
 == Usage in Mongoid model
 
-class MyModel
-  include Mongoid::Document
-  include Vidibus::Uuid::Mongoid
-end
+  class MyModel
+    include Mongoid::Document
+    include Vidibus::Uuid::Mongoid
+  end
 
-This will add a field uuid to the model an generate an UUID when creating the model.
+This will extend your model as follows:
+
+  class MyModel
+    include Mongoid::Document
+  
+    field :uuid
+    index :uuid, :unique => true
+  
+    before_validation :generate_uuid
+    validates :uuid, :uniqueness => true, :uuid => true
+  
+    private
+  
+    def generate_uuid
+      return unless new_record?
+      self.uuid ||= Vidibus::Uuid.generate
+    end
+  end
 
 
 == Validation of custom attributes
 
 To verfify that custom attributes are formatted as UUID, add the uuid validator to your model:
 
-class MyModel
-  include Mongoid::Document
-  
-  product_uuid
-  validates :product_uuid, :uuid => { :allow_blank => true }
-end
+  class MyModel
+    include Mongoid::Document
+    field :product_uuid
+    validates :product_uuid, :uuid => { :allow_blank => true }
+  end
 
 
 == Copyright
@@ -48,4 +64,4 @@ Copyright (c) 2010 Andre Pankratz. See LICENSE for details.
 
 == Thank you!
 
-The development of this Gem was sponsored by Käuferportal: http://www.kaeuferportal.de
+The development of this gem was sponsored by Käuferportal: http://www.kaeuferportal.de

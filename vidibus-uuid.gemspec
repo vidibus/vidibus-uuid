@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{vidibus-uuid}
-  s.version = "0.3.0"
+  s.version = "0.3.4"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Andre Pankratz"]
-  s.date = %q{2010-07-02}
+  s.date = %q{2010-08-09}
   s.description = %q{Provides UUID generation. Basically, it is an abstraction layer for UUID gem.}
   s.email = %q{andre@vidibus.com}
   s.extra_rdoc_files = [
@@ -26,9 +26,12 @@ Gem::Specification.new do |s|
      "lib/vidibus-uuid.rb",
      "lib/vidibus/uuid.rb",
      "lib/vidibus/uuid/mongoid.rb",
+     "lib/vidibus/validate_uuid.rb",
      "spec/spec.opts",
      "spec/spec_helper.rb",
+     "spec/vidibus/uuid/mongoid_spec.rb",
      "spec/vidibus/uuid_spec.rb",
+     "spec/vidibus/validate_uuid_spec.rb",
      "vidibus-uuid.gemspec"
   ]
   s.homepage = %q{http://github.com/vidibus/vidibus-uuid}
@@ -49,16 +52,16 @@ Gem::Specification.new do |s|
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
       s.add_development_dependency(%q<rspec>, [">= 0"])
-      s.add_development_dependency(%q<mongoid>, [">= 2.0.0.beta6"])
+      s.add_development_dependency(%q<mongoid>, ["= 2.0.0.beta.15"])
       s.add_runtime_dependency(%q<uuid>, [">= 0"])
     else
       s.add_dependency(%q<rspec>, [">= 0"])
-      s.add_dependency(%q<mongoid>, [">= 2.0.0.beta6"])
+      s.add_dependency(%q<mongoid>, ["= 2.0.0.beta.15"])
       s.add_dependency(%q<uuid>, [">= 0"])
     end
   else
     s.add_dependency(%q<rspec>, [">= 0"])
-    s.add_dependency(%q<mongoid>, [">= 2.0.0.beta6"])
+    s.add_dependency(%q<mongoid>, ["= 2.0.0.beta.15"])
     s.add_dependency(%q<uuid>, [">= 0"])
   end
 end

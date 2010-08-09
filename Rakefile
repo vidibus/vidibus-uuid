@@ -6,12 +6,12 @@ begin
   Jeweler::Tasks.new do |gem|
     gem.name = "vidibus-uuid"
     gem.summary = %Q{Provides UUID generation through UUID gem.}
-    gem.description = %Q{Provides UUID generation. Basically, it is an abstraction layer for UUID gem.}
+    gem.description = %Q{Provides UUID generation for Mongoid models. It includes a validator for UUIDs.}
     gem.email = "andre@vidibus.com"
     gem.homepage = "http://github.com/vidibus/vidibus-uuid"
     gem.authors = ["Andre Pankratz"]
     gem.add_development_dependency "rspec"
-    gem.add_development_dependency "mongoid", ">= 2.0.0.beta6"
+    gem.add_development_dependency "mongoid", "= 2.0.0.beta.15"
     gem.add_dependency "uuid"
   end
   Jeweler::GemcutterTasks.new

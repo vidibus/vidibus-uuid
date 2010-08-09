@@ -1,3 +1,5 @@
+require "uuid"
+
 module Vidibus
   module Uuid
     def self.generate
