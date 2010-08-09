@@ -63,8 +63,3 @@ To verfify that custom attributes are formatted as UUID, add the uuid validator 
 == Copyright
 
 Copyright (c) 2010 Andre Pankratz. See LICENSE for details.
-
-
-== Thank you!
-
-The development of this gem was sponsored by Käuferportal: http://www.kaeuferportal.de
