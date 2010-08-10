@@ -2,6 +2,7 @@ $LOAD_PATH.unshift(File.dirname(__FILE__))
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), "..", "lib"))
 
 require "rubygems"
+require "rails"
 require "active_support/core_ext"
 require "spec"
 require "mongoid"
@@ -21,4 +22,4 @@ Spec::Runner.configure do |config|
   end
 end
 
-I18n.load_path += Dir[File.join('config', 'locale', '**', '*.{rb,yml}')]
+I18n.load_path += Dir[File.join('config', 'locales', '**', '*.{rb,yml}')]
