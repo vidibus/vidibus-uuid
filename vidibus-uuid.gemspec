@@ -23,6 +23,7 @@ Gem::Specification.new do |s|
      "README.rdoc",
      "Rakefile",
      "VERSION",
+     "config/locales/en.yml",
      "lib/vidibus-uuid.rb",
      "lib/vidibus/uuid.rb",
      "lib/vidibus/uuid/mongoid.rb",
