@@ -11,7 +11,7 @@ begin
     gem.homepage = "http://github.com/vidibus/vidibus-uuid"
     gem.authors = ["Andre Pankratz"]
     gem.add_development_dependency "rspec"
-    gem.add_development_dependency "mongoid", "= 2.0.0.beta.15"
+    gem.add_development_dependency "mongoid", "~> 2.0.0.beta.16"
     gem.add_dependency "uuid"
   end
   Jeweler::GemcutterTasks.new
