@@ -2,6 +2,7 @@ module Vidibus
   module Uuid
     module Mongoid
       extend ActiveSupport::Concern
+      
       included do
         field :uuid
         index :uuid, :unique => true

@@ -47,4 +47,3 @@ describe "Vidibus::Uuid" do
     end
   end
 end
-

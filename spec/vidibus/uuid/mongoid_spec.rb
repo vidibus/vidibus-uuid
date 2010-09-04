@@ -16,7 +16,7 @@ describe "Vidibus::Uuid::Mongoid" do
   let(:model) { Model.create }
   let(:new_model) { Model.new }
   let(:uuid) { Vidibus::Uuid.generate }
-
+  
   it "should add an uuid field to model" do
     model.should respond_to(:uuid)
   end
