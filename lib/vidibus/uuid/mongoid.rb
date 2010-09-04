@@ -9,7 +9,7 @@ module Vidibus
         validates :uuid, :uniqueness => true, :uuid => true
       end
       
-      # Returns UUID as param for urls.
+      # Returns UUID as param for URLs.
       def to_param
         uuid
       end

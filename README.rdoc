@@ -2,7 +2,7 @@
 
 This gem is part of the open source SOA framework Vidibus: http://www.vidibus.org
 
-It generates compact UUIDs. Basically, this is an abstraction of http://github.com/assaf/uuid
+It generates and validates compact UUIDs. Basically, this is an abstraction of http://github.com/assaf/uuid
 
 
 == Installation
@@ -18,6 +18,9 @@ Then call bundle install on your console.
 
   Vidibus::Uuid.generate
   # => "b063263064e0012d47b658b035f038ab"
+  
+  Vidibus::Uuid.validate("b063263064e0012d47b658b035f038ab")
+  # => true
 
 
 === Usage in Mongoid model
@@ -33,15 +36,15 @@ This will extend your model as follows:
 
   class MyModel
     include Mongoid::Document
-  
+    
     field :uuid
     index :uuid, :unique => true
-  
+    
     before_validation :generate_uuid
     validates :uuid, :uniqueness => true, :uuid => true
-  
+    
     private
-  
+    
     def generate_uuid
       return unless new_record?
       self.uuid ||= Vidibus::Uuid.generate
