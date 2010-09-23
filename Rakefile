@@ -13,7 +13,7 @@ begin
     gem.email = "andre@vidibus.com"
     gem.homepage = "http://github.com/vidibus/vidibus-uuid"
     gem.authors = ["Andre Pankratz"]
-    gem.add_dependency "mongoid", "~> 2.0.0.beta.17"
+    gem.add_dependency "mongoid", "~> 2.0.0.beta.20"
     gem.add_dependency "uuid", "~> 2.3.1"
   end
   Jeweler::GemcutterTasks.new
