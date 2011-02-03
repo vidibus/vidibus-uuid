@@ -31,6 +31,13 @@ describe "Vidibus::Uuid::Mongoid" do
     new_model.uuid.should eql("test")
   end
 
+  it "should generate a new UUID if a blank value has been set" do
+    new_model.uuid = ""
+    new_model.save
+    new_model.uuid.should_not eql("")
+    new_model.should be_valid
+  end
+
   it "should keep the UUID persistent" do
     uuid = model.uuid
     model.save!

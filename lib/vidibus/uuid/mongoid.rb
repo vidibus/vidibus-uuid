@@ -25,7 +25,9 @@ module Vidibus
 
       # Sets unique UUID unless uuid is present.
       def generate_uuid
-        self.uuid ||= Vidibus::Uuid.generate
+        if [nil, ""].include?(uuid)
+          self.uuid = Vidibus::Uuid.generate
+        end
       end
     end
   end
