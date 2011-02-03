@@ -25,6 +25,12 @@ describe "Vidibus::Uuid::Mongoid" do
     model.uuid.length.should eql(32)
   end
 
+  it "should not generate a new UUID if a value has been set" do
+    new_model.uuid = "test"
+    new_model.save
+    new_model.uuid.should eql("test")
+  end
+
   it "should keep the UUID persistent" do
     uuid = model.uuid
     model.save!
