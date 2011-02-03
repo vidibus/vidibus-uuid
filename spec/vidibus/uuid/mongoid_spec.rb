@@ -61,8 +61,38 @@ describe "Vidibus::Uuid::Mongoid" do
     model.children[0].uuid.should_not eql(model.children[1].uuid)
   end
 
-  it "should set UUID as default param" do
-    model.should respond_to(:to_param)
-    model.to_param.should eql(model.uuid)
+  describe "#to_param" do
+    it "should be available" do
+      model.should respond_to(:to_param)
+    end
+
+    it "should return the UUID" do
+      model.to_param.should eql(model.uuid)
+    end
+
+    it "should return the new UUID if it has been changed" do
+      new_uuid = "64d3a190d945012d4b2158b035f038ab"
+      model.uuid = new_uuid
+      model.to_param.should eql(new_uuid)
+    end
+
+    it "should return the original UUID if the new one is invalid" do
+      old_uuid = model.uuid
+      model.uuid = "invalid"
+      model.to_param.should eql(old_uuid)
+    end
+
+    it "should return an invalid UUID, if it has not been set before" do
+      new_uuid = "64d3a190d945012d4b2158b035f038ab"
+      model.uuid = new_uuid
+      model.to_param.should eql(new_uuid)
+    end
+
+    it "should return the old UUID if the new one is invalid, even though it has been reset before" do
+      old_uuid = model.uuid
+      model.uuid = nil
+      model.uuid = "invalid"
+      model.to_param.should eql(old_uuid)
+    end
   end
 end
