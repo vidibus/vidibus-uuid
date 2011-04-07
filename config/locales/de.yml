@@ -1,5 +1,4 @@
 de:
-  activemodel:
-    errors:
-      messages:
-        invalid_uuid: "ist keine gültige UUID"
+  errors:
+    messages:
+      invalid_uuid: "ist keine gültige UUID"
