@@ -59,7 +59,7 @@ To verfify that custom attributes are formatted as UUID, add the uuid validator 
   class MyModel
     include Mongoid::Document
     field :product_uuid
-    validates :product_uuid, :uuid => { :allow_blank => true }
+    validates :product_uuid, :uuid => {:allow_blank => true}
   end
 
 

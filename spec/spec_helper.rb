@@ -14,7 +14,7 @@ end
 
 RSpec.configure do |config|
   config.after :suite do
-    Mongoid.master.collections.select {|c| c.name !~ /system/ }.each(&:drop)
+    Mongoid.master.collections.select {|c| c.name !~ /system/}.each(&:drop)
   end
 end
 

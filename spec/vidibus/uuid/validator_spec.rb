@@ -4,11 +4,11 @@ class ModelWithValidations
   include ActiveModel::Validations
   attr_accessor :required_uuid, :optional_uuid
   validates :required_uuid, :uuid => true
-  validates :optional_uuid, :uuid => { :allow_blank => true }
+  validates :optional_uuid, :uuid => {:allow_blank => true}
 end
 
 describe Vidibus::Uuid::Validator do
-  let(:model) { ModelWithValidations.new }
+  let(:model) {ModelWithValidations.new}
 
   it "should be available as uuid validator for attribute required_uuid" do
     ModelWithValidations.validators_on(:required_uuid).first.should be_a_kind_of(Vidibus::Uuid::Validator::UuidValidator)
