@@ -1,4 +1,4 @@
-# Vidibus::Uuid [![](http://travis-ci.org/vidibus/vidibus-uuid.png)](http://travis-ci.org/vidibus/vidibus-uuid)
+# Vidibus::Uuid [![](http://travis-ci.org/vidibus/vidibus-uuid.png)](http://travis-ci.org/vidibus/vidibus-uuid) [![](http://stillmaintained.com/vidibus/vidibus-uuid.png)](http://stillmaintained.com/vidibus/vidibus-uuid)
 
 Generates and validates compact UUIDs. Basically, this is an abstraction of http://github.com/assaf/uuid
 
