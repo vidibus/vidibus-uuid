@@ -1,23 +1,12 @@
-require "rubygems"
-require "rake"
+require "bundler"
 require "rdoc/task"
 require "rspec"
 require "rspec/core/rake_task"
 
-begin
-  require "jeweler"
-  Jeweler::Tasks.new do |gem|
-    gem.name = "vidibus-uuid"
-    gem.summary = %Q{Provides UUID generation through UUID gem.}
-    gem.description = %Q{Provides UUID generation for Mongoid models. It includes a validator for UUIDs.}
-    gem.email = "andre@vidibus.com"
-    gem.homepage = "http://github.com/vidibus/vidibus-uuid"
-    gem.authors = ["Andre Pankratz"]
-  end
-  Jeweler::GemcutterTasks.new
-rescue LoadError
-  puts "Jeweler (or a dependency) not available. Install it with: gem install jeweler"
-end
+Bundler::GemHelper.install_tasks
+
+$LOAD_PATH.unshift File.expand_path("../lib", __FILE__)
+require "vidibus/uuid/version"
 
 RSpec::Core::RakeTask.new(:rcov) do |t|
   t.pattern = "spec/**/*_spec.rb"
@@ -26,10 +15,11 @@ RSpec::Core::RakeTask.new(:rcov) do |t|
 end
 
 Rake::RDocTask.new do |rdoc|
-  version = File.exist?("VERSION") ? File.read("VERSION") : ""
   rdoc.rdoc_dir = "rdoc"
-  rdoc.title = "vidibus-uuid #{version}"
+  rdoc.title = "vidibus-sysinfo #{Vidibus::Uuid::VERSION}"
   rdoc.rdoc_files.include("README*")
   rdoc.rdoc_files.include("lib/**/*.rb")
   rdoc.options << "--charset=utf-8"
 end
+
+task :default => :rcov

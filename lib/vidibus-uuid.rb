@@ -1,3 +1,6 @@
+require "mongoid"
+require "uuid"
+
 require "vidibus/uuid"
 require "vidibus/validate_uuid"
 require "vidibus/uuid/mongoid"

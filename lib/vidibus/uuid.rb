@@ -1,5 +1,3 @@
-require "uuid"
-
 module Vidibus
   module Uuid
 
