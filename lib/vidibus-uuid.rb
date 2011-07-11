@@ -2,7 +2,7 @@ require "mongoid"
 require "uuid"
 
 require "vidibus/uuid"
-require "vidibus/validate_uuid"
+require "vidibus/uuid/validator"
 require "vidibus/uuid/mongoid"
 
 if defined?(Rails)
@@ -11,4 +11,4 @@ if defined?(Rails)
   end
 end
 
-ActiveModel::Validations.send(:include, Vidibus::ValidateUuid)
+ActiveModel::Validations.send(:include, Vidibus::Uuid::Validator)

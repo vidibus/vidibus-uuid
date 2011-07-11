@@ -7,15 +7,15 @@ class ModelWithValidations
   validates :optional_uuid, :uuid => { :allow_blank => true }
 end
 
-describe "Vidibus::ValidateUuid::UuidValidator" do
+describe Vidibus::Uuid::Validator do
   let(:model) { ModelWithValidations.new }
 
   it "should be available as uuid validator for attribute required_uuid" do
-    ModelWithValidations.validators_on(:required_uuid).first.should be_a_kind_of(Vidibus::ValidateUuid::UuidValidator)
+    ModelWithValidations.validators_on(:required_uuid).first.should be_a_kind_of(Vidibus::Uuid::Validator::UuidValidator)
   end
 
   it "should be available as uuid validator for attribute optional_uuid" do
-    ModelWithValidations.validators_on(:optional_uuid).first.should be_a_kind_of(Vidibus::ValidateUuid::UuidValidator)
+    ModelWithValidations.validators_on(:optional_uuid).first.should be_a_kind_of(Vidibus::Uuid::Validator::UuidValidator)
   end
 
   it "should validate valid UUIDs" do
