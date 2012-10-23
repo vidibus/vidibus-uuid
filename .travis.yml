@@ -1,1 +1,4 @@
-script: "bundle exec rspec spec --format progress"
+rvm:
+  - 1.9.3
+script: 'bundle exec rspec spec --format progress'
+services: mongodb
