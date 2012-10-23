@@ -47,4 +47,4 @@ end
 
 ## Copyright
 
-&copy; 2010-2011 Andre Pankratz. See LICENSE for details.
+&copy; 2010-2012 Andre Pankratz. See LICENSE for details.
