@@ -10,7 +10,7 @@ require "vidibus/uuid/version"
 
 Rake::RDocTask.new do |rdoc|
   rdoc.rdoc_dir = "rdoc"
-  rdoc.title = "vidibus-sysinfo #{Vidibus::Uuid::VERSION}"
+  rdoc.title = "Vidibus::Uuid #{Vidibus::Uuid::VERSION}"
   rdoc.rdoc_files.include("README*")
   rdoc.rdoc_files.include("lib/**/*.rb")
   rdoc.options << "--charset=utf-8"
