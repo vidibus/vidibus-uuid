@@ -8,13 +8,14 @@ require "vidibus-uuid"
 
 Mongoid.configure do |config|
   name = "vidibus-uuid_test"
-  host = "localhost"
-  config.master = Mongo::Connection.new.db(name)
+  config.connect_to(name)
 end
 
 RSpec.configure do |config|
   config.after :suite do
-    Mongoid.master.collections.select {|c| c.name !~ /system/}.each(&:drop)
+    Mongoid::Sessions.default.collections.select do |c|
+      c.name !~ /system/
+    end.each(&:drop)
   end
 end
 

@@ -5,7 +5,7 @@ module Vidibus
 
       included do
         field :uuid
-        index :uuid, :unique => true
+        index({:uuid => 1}, {:unique => true})
         before_validation :generate_uuid
         validates :uuid, :uniqueness => true, :uuid => true
       end
