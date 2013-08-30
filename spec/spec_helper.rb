@@ -7,8 +7,7 @@ require "rspec"
 require "vidibus-uuid"
 
 Mongoid.configure do |config|
-  name = "vidibus-uuid_test"
-  config.connect_to(name)
+  config.connect_to('vidibus-uuid_test')
 end
 
 RSpec.configure do |config|
